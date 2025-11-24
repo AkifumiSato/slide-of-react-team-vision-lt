@@ -46,7 +46,7 @@ Reactが見据える大規模開発とアーキテクチャ
 
 # 今日のテーマ: Reactチームが見てる世界
 
-大規模開発を支えるReactチームが見てる世界を、歴史から紐解く
+Reactチームが見据えてるMetaの大規模開発とアーキテクチャを知る
 
 1. ~~Reactの誕生~~
 1. ReactとGraphQL
@@ -62,17 +62,15 @@ Metaを支える技術基盤
 
 ---
 
-# 前提: Metaの大規模開発
+# Metaの大規模開発
 
 Metaの開発は世界有数の規模
 
-- 異次元な基盤と予算
-  - 世界中に独自のデータセンターを配置
-  - 海底ケーブルもGoogleと共同で保持
-  - フレームワークや言語開発も厭わない開発予算
+- 豊富な開発予算
+  - フレームワークや言語開発
+  - 独自のデータセンターや海底ケーブル
 - 超大規模React開発
   - 数万〜10万のコンポーネントを保有
-  - 多くの修正をCode modで自動化して保守
 
 彼らは特に<span v-mark.underline.red class="font-bold">スケーラビリティ</span>を非常に重要視している
 
@@ -82,14 +80,13 @@ Metaの開発は世界有数の規模
 
 ---
 
-# MetaにとってのGraphQL
+# MetaにとってのReactとGraphQL
 
-Reactと併用する技術であり、通信の課題を解決する技術
+ReactとGraphQLは併用する技術
 
-- MetaにとってのGraphQLはBFFに対する通信の課題を解決する技術
-- Meta以外では**バックエンド通信のプロトコル**として採用されることが多い
-
-開発元のMetaと世間では、<span v-mark.underline.red class="font-bold">GraphQL採用のモチベーションが異なる</span>ことが多い
+- ReactとGraphQLは同時期に開発された技術
+  - React: フロントエンドの問題を解決
+  - GraphQL: BFFに対する通信の課題を解決
 
 ---
 
@@ -104,16 +101,14 @@ https://excalidraw.com/#json=J6xbE-rC2K5hIMY3EUYwW,HHuYJ-TUkRoT8SBc5xmBbw
 -->
 
 ---
-transition: fade
----
 
-# MetaにとってのGraphQLとReact
+# GraphQLが解決しようとしていた課題
 
-Metaの大規模プロダクトたちを支えるアーキテクチャ
+設計と通信効率のジレンマ
 
-- MetaにとってReactとGraphQLは大規模システムを支える<span v-mark.underline.red class="font-bold">自律分散的アーキテクチャ</span>の基盤である
-  - Not 中央集権アーキテクチャ（e.g. ReduxやWeb MVCなど）
-  - [Thinking in Relay](https://relay.dev/docs/principles-and-architecture/thinking-in-relay/)などからもMetaの思考が読み取れる
+- 凝集性を高めるためには、コンポーネントとデータフェッチをまとめたい
+- しかし、RestfulなAPIではデータフェッチが重複や過剰取得が発生する
+- GraphQLは<span v-mark.underline.red class="font-bold">必要なデータの宣言とデータフェッチの効率化</span>を同時に提供する技術
 
 ---
 transition: fade
@@ -164,9 +159,8 @@ export default function Post({ post }: Props) {
 
 Metaを支える技術基盤
 
-- MetaにとってReactとGraphQLは<span v-mark.underline.red class="font-bold">自立分散的アーキテクチャ</span>を構築するための基盤
-  - コンポーネントが必要なデータを自分で宣言する世界
-  - 現在もMetaで多くのプロダクトを支えている
+- ReactとGraphQLは<span v-mark.underline.red class="font-bold">必要なデータの宣言とデータフェッチの効率化</span>を実現するための技術
+- 現在もMetaで多くのプロダクトを支えている
 
 ---
 layout: section
@@ -221,13 +215,14 @@ transition: fade
 
 ---
 
-# まとめ
+# React Server Componentsまとめ
 
-Reactは大規模開発に通用する
+React Server Components=スケーラブルなフロントエンドのアーキテクチャ
 
-- Reactは大規模開発向けフレームワークで（も）ある
-- MetaはReact+GraphQLで自立分散的なアーキテクチャを採用している
-- React Server Componentsもまた自立分散的アーキテクチャであり、React+GraphQLの正当後継
+- MetaはReact+GraphQLで「必要なデータの宣言とデータフェッチの効率化」を実現している
+- React Server ComponentsはReact+GraphQLの正当後継
+
+React Server Componentsは<span v-mark.underline.red class="font-bold">小規模からMetaレベルの大規模開発まで通用するアーキテクチャ</span>
 
 ---
 layout: section
