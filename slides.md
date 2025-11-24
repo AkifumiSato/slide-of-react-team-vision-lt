@@ -20,8 +20,6 @@ in ~~React Tokyo~~
 Reactが見据える大規模開発とアーキテクチャ
 
 ---
-layout: two-cols
----
 
 # Profile
 
@@ -75,6 +73,8 @@ Metaの開発は世界有数の規模
 - 超大規模React開発
   - 数万〜10万のコンポーネントを保有
   - 多くの修正をCode modで自動化して保守
+
+彼らは特に<span v-mark.underline.red class="font-bold">スケーラビリティ</span>を非常に重要視している
 
 <!--
 参考: https://medium.com/@syedmahmad/react-relay-modern-simplified-956f33739f0

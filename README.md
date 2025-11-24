@@ -1,6 +1,6 @@
-# Slide of React Tokyo 202502
+# Slide of React Team Vision (LT)
 
 ## Slide
 
 - [slides.md](./slides.md)
-- [github pages](https://akifumisato.github.io/slide-of-react-tokyo-202502/1)
+- [github pages](https://akifumisato.github.io/slide-of-react-team-vision-lt/1)
