@@ -44,13 +44,14 @@ Reactが見据える大規模開発とアーキテクチャ
 
 ---
 
-# 今日のテーマ: Reactチームが見てる世界
+# 今日のテーマ: React Server Componentsの起源
 
-Reactチームが見据えてるMetaの大規模開発とアーキテクチャを知る
+なぜReactチームはReact Server Componentsに至ったのか
 
-1. ~~Reactの誕生~~
 1. ReactとGraphQL
 1. React Server Components
+
+※React Server Components: React界隈でデファクトとなりつつある仕様規約
 
 ---
 layout: section
@@ -222,7 +223,7 @@ React Server Components=スケーラブルなフロントエンドのアーキ�
 - MetaはReact+GraphQLで「必要なデータの宣言とデータフェッチの効率化」を実現している
 - React Server ComponentsはReact+GraphQLの正当後継
 
-React Server Componentsは<span v-mark.underline.red class="font-bold">小規模からMetaレベルの大規模開発まで通用するアーキテクチャ</span>
+React Server Componentsは<span v-mark.underline.red class="font-bold">小規模から大規模開発(Metaレベル)まで通用するアーキテクチャ</span>
 
 ---
 layout: section
