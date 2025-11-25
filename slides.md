@@ -17,7 +17,7 @@ mdc: true
 
 in ~~React Tokyo~~
 
-Reactが見据える大規模開発とアーキテクチャ
+Metaに学ぶ大規模フロントエンドのアーキテクチャ
 
 ---
 
@@ -44,11 +44,11 @@ Reactが見据える大規模開発とアーキテクチャ
 
 ---
 
-# 今日のテーマ: React Server Componentsの起源
+# Theme: アーキテクチャで見るReactの進化論
 
-なぜReactチームはReact Server Componentsに至ったのか
+Metaで採用されてるアーキテクチャとその進化
 
-1. ReactとGraphQL
+1. React+GraphQL
 1. React Server Components
 
 ※React Server Components: React界隈でデファクトとなりつつある仕様規約
@@ -59,7 +59,7 @@ layout: section
 
 # ReactとGraphQL
 
-Metaを支える技術基盤
+現在もMetaを支える技術基盤
 
 ---
 
@@ -85,9 +85,8 @@ Metaの開発は世界有数の規模
 
 ReactとGraphQLは併用する技術
 
-- ReactとGraphQLは同時期に開発された技術
-  - React: フロントエンドの問題を解決
-  - GraphQL: BFFに対する通信の課題を解決
+- React: フロントエンドの課題を解決
+- GraphQL: BFFに対する通信の課題を解決
 
 ---
 
@@ -107,23 +106,26 @@ https://excalidraw.com/#json=J6xbE-rC2K5hIMY3EUYwW,HHuYJ-TUkRoT8SBc5xmBbw
 
 設計と通信効率のジレンマ
 
-- 凝集性を高めるためには、コンポーネントとデータフェッチをまとめたい
-- しかし、RestfulなAPIではデータフェッチが重複や過剰取得が発生する
-- GraphQLは<span v-mark.underline.red class="font-bold">必要なデータの宣言とデータフェッチの効率化</span>を同時に提供する技術
+- 設計観点ではコンポーネント単位でデータフェッチしたい -> HTTP通信しすぎてすぐに劣化
+- 通信効率観点では親コンポーネントで1回だけデータフェッチしたい -> God APIになって破綻
 
 ---
-transition: fade
----
 
-# MetaにとってのGraphQLとReact
+# GodAPIパターン
 
 <div class="flex justify-center mt-10">
   <img src="/top-level-data-fetching.png" alt="Top Level Data Fetching">
 </div>
 
 ---
+layout: fact
+---
 
-# MetaにとってのGraphQLとReact
+## GraphQLは<br>設計と通信効率のジレンマを解決する技術
+
+---
+
+# GraphQL Co-Location
 
 <div class="flex justify-center mt-10">
   <img src="/graphql-co-location.png" alt="GraphQL">
@@ -160,8 +162,8 @@ export default function Post({ post }: Props) {
 
 Metaを支える技術基盤
 
-- ReactとGraphQLは<span v-mark.underline.red class="font-bold">必要なデータの宣言とデータフェッチの効率化</span>を実現するための技術
-- 現在もMetaで多くのプロダクトを支えている
+- GraphQLは<span v-mark.underline.red class="font-bold">設計と通信効率のジレンマ</span>を解決する技術
+- ReactとGraphQLを併用することで、大規模開発でもスケールするアーキテクチャを実現
 
 ---
 layout: section
@@ -169,7 +171,7 @@ layout: section
 
 # React Server Components
 
-新たな自立分散的アーキテクチャ
+現在主流なフロントエンドのアーキテクチャ
 
 ---
 
@@ -181,13 +183,6 @@ React単体で前述の世界観を実現可能に
 // Server Component: Serverでのみ実行されるComponent
 export async function Post({ id }: Props) {
   const post = await getPost(id);
-
-  // ...
-}
-
-// Server Function: ClientからServerの関数を呼び出せるFunction
-export async function updatePost(post: Partial<Post>) {
-  "use server";
 
   // ...
 }
@@ -220,10 +215,8 @@ transition: fade
 
 React Server Components=スケーラブルなフロントエンドのアーキテクチャ
 
-- MetaはReact+GraphQLで「必要なデータの宣言とデータフェッチの効率化」を実現している
+- React+GraphQLは設計と通信効率のジレンマを解決した
 - React Server ComponentsはReact+GraphQLの正当後継
-
-React Server Componentsは<span v-mark.underline.red class="font-bold">小規模から大規模開発(Metaレベル)まで通用するアーキテクチャ</span>
 
 ---
 layout: section
